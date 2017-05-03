@@ -4,8 +4,8 @@ const Intro = () => (
     <div id="intro">
         <h1>These are <br />
             Techmusings</h1>
-        <p>A justo, porta faucibus morbi non nibh arcu accumsan interdum at aenean col Eleifend<br />
-            sed accumsan cep cras augue dui Eleifend Aliquam pharetra.</p>
+        <p>During my work and studies I encounter quite a few interesting technology advancements<br />
+            this is the place where I summarize these finding and keep track of the lessons learned.</p>
         <ul className="actions">
             <li><a href="#header" className="button icon solo fa-arrow-down scrolly">Continue</a></li>
         </ul>

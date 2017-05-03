@@ -1,18 +1,10 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter,
-  Route
-} from 'react-router-dom'
 
-import Intro from './pages/Intro';
-import Header from './pages/Header';
-import Nav from './pages/Nav';
-import Copyright from './pages/Copyright';
+import Footer from './Footer';
+import PostFeatured from './PostFeatured';
+import Post from './Post';
 
-import Posts from './pages/Posts';
-import About from './pages/About';
-
-class App extends Component {
+class Posts extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -35,23 +27,20 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
-        <div id="wrapper" className="fade-in">
-          <Intro />
-          <Header />
-          <Nav />
-
-          <div>
-            <Route exact path="/" component={Posts} />
-            <Route path="/index.html" component={Posts} />
-            <Route path="/about" component={About} />
-          </div>
-
-          <Copyright />
-        </div >
-      </BrowserRouter>
+        <div id="main">
+          <PostFeatured post={this.state.posts[0]} />
+          <section className="posts">
+            <Post post={this.state.posts[1]} />
+            <Post post={this.state.posts[1]} />
+            <Post post={this.state.posts[1]} />
+            <Post post={this.state.posts[1]} />
+            <Post post={this.state.posts[1]} />
+            <Post post={this.state.posts[1]} />
+          </section>
+          <Footer />
+        </div>
     );
   }
 }
 
-export default App;
+export default Posts;
