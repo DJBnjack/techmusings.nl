@@ -1,17 +1,56 @@
 import React, { Component } from 'react';
+import Intro from './pages/Intro';
+import Header from './pages/Header';
+import Nav from './pages/Nav';
+import Footer from './pages/Footer';
+import Copyright from './pages/Copyright';
+
+import PostFeatured from './pages/PostFeatured';
+import Post from './pages/Post';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      posts: [
+        {
+          date: "April 24, 2017",
+          title: "CI/CD inside Docker 2",
+          abstract: "Aenean ornare velit lacus varius enim ullamcorper proin aliquam facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor amet nullam sed etiam veroeros.",
+          picture: "images/pic01.jpg"
+        },
+        {
+          date: "April 22, 2017",
+          title: "CI/CD inside Docker 1",
+          abstract: "Aenean ornare velit lacus varius enim ullamcorper proin aliquam facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor amet nullam sed etiam veroeros.",
+          picture: "images/pic02.jpg"
+        }
+      ]
+    };
+  }
+
   render() {
     return (
-      <div id="intro">
-        <h1>These are <br />
-          Techmusings</h1>
-        <p>A justo, porta faucibus morbi non nibh arcu accumsan interdum at aenean col Eleifend<br />
-          sed accumsan cep cras augue dui Eleifend Aliquam pharetra.</p>
-        <ul className="actions">
-          <li><a href="#header" className="button icon solo fa-arrow-down scrolly">Continue</a></li>
-        </ul>
-      </div>
+      <div id="wrapper" className="fade-in">
+        <Intro />
+        <Header />
+        <Nav />
+
+        <div id="main">
+          <PostFeatured post={this.state.posts[0]} />
+          <section className="posts">
+            <Post post={this.state.posts[1]} />
+            <Post post={this.state.posts[1]} />
+            <Post post={this.state.posts[1]} />
+            <Post post={this.state.posts[1]} />
+            <Post post={this.state.posts[1]} />
+            <Post post={this.state.posts[1]} />
+          </section>
+          <Footer />
+        </div>
+
+        <Copyright />
+      </div >
     );
   }
 }
