@@ -13,13 +13,15 @@ class Posts extends Component {
           date: "April 24, 2017",
           title: "CI/CD inside Docker 2",
           abstract: "Aenean ornare velit lacus varius enim ullamcorper proin aliquam facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor amet nullam sed etiam veroeros.",
-          picture: "images/pic01.jpg"
+          picture: "images/pic01.jpg",
+          link: "/article/docker-2"
         },
         {
           date: "April 22, 2017",
           title: "CI/CD inside Docker 1",
           abstract: "Aenean ornare velit lacus varius enim ullamcorper proin aliquam facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor amet nullam sed etiam veroeros.",
-          picture: "images/pic02.jpg"
+          picture: "images/pic02.jpg",
+          link: "/article/docker-1"
         }
       ]
     };

@@ -1,14 +1,13 @@
 import React from 'react';
 import ScrollToTopOnMount from '../helper/ScrollToTopOnMount';
 
-const About = () => (
+const Article = ({match}) => (
     <div id="main">
         <ScrollToTopOnMount />
         <section className="post">
             <header className="major">
-                <h1>About<br />
-                    Techmusings</h1>
-                <p>This is a meta-post about this site and the author.</p>
+                <h1>Article Title</h1>
+                <p>Article Introduction on {match.params.articleId}</p>
             </header>
             <div className="image main"><img src="/images/pic01.jpg" alt="" /></div>
             <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
@@ -17,4 +16,4 @@ const About = () => (
     </div>
 );
 
-export default About;
+export default Article;
