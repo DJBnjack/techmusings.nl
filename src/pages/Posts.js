@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
-// import Footer from './Footer';
+import Footer from './Footer';
 import PostFeatured from './PostFeatured';
 import Post from './Post';
 
@@ -8,49 +9,46 @@ class Posts extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: [
-        {
-          date: "April 28, 2017",
-          title: "CI/CD inside Docker 3",
-          abstract: "Aenean ornare velit lacus varius enim ullamcorper proin aliquam facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor amet nullam sed etiam veroeros.",
-          picture: "/images/ship1.jpg",
-          link: "/article/docker-3"
-        },
-        {
-          date: "April 24, 2017",
-          title: "CI/CD inside Docker 2",
-          abstract: "Aenean ornare velit lacus varius enim ullamcorper proin aliquam facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor amet nullam sed etiam veroeros.",
-          picture: "/images/pic02.jpg",
-          link: "/article/docker-2"
-        },
-        {
-          date: "April 22, 2017",
-          title: "CI/CD inside Docker 1",
-          abstract: "Aenean ornare velit lacus varius enim ullamcorper proin aliquam facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor amet nullam sed etiam veroeros.",
-          picture: "/images/pic02.jpg",
-          link: "/article/docker-1"
-        }
-      ]
+      posts: []
     };
   }
 
+  componentDidMount() {
+    axios.get(`/api/posts`)
+      .then(res => {
+        const posts = res.data.map(obj => obj);
+        this.setState({ posts });
+      });
+  }
+
   render() {
+    var featuredPost = null;
+    if (this.state.posts.length > 0) {
+      featuredPost = <PostFeatured post={this.state.posts[0]} />;
+    } else {
+      featuredPost = <h1>Loading...</h1>;
+    }
+
     var posts = [];
-    this.state.posts.slice(1).forEach(post => {
-      posts.push(<Post post={post} />)
-    });
+    if (this.state.posts.length > 1) {
+      this.state.posts.slice(1).forEach(post => {
+        posts.push(<Post key={post.link} post={post} />);
+      });
+    }
+
+    var footer = [];
+    if (this.state.posts.length > 10) {
+      footer.push(<Footer />);
+    }
 
     return (
-        <div id="main">
-          <PostFeatured post={this.state.posts[0]} />
-          <section className="posts">
-            {posts}
-          </section>
-          {/* 
-          Might need a footer when there are a lot of posts...
-          <Footer /> 
-          */}
-        </div>
+      <div id="main">
+        {featuredPost}
+        <section className="posts">
+          {posts}
+        </section>
+        {footer}
+      </div>
     );
   }
 }
