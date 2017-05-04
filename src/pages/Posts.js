@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Footer from './Footer';
+// import Footer from './Footer';
 import PostFeatured from './PostFeatured';
 import Post from './Post';
 
