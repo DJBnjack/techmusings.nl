@@ -8,9 +8,9 @@ const PostFeatured = (props) => (
             <h2><NavLink exact to={props.post.link}>{props.post.title}</NavLink></h2>
             <p>{props.post.abstract}</p>
         </header>
-        <a href="#" className="image main"><img src={props.post.picture} alt="" /></a>
+        <NavLink exact to={props.post.link} className="image main"><img src={props.post.picture} alt="" /></NavLink>
         <ul className="actions">
-            <li><NavLink exact to={props.post.link} className="button big">Full Story</NavLink></li>
+            <li><NavLink exact to={props.post.link} className="button big">Full Article</NavLink></li>
         </ul>
     </article>
 );

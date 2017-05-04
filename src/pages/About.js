@@ -6,8 +6,7 @@ const About = () => (
         <ScrollToTopOnMount />
         <section className="post">
             <header className="major">
-                <h1>About<br />
-                    Techmusings</h1>
+                <h1>About Techmusings</h1>
                 <p>This is a meta-post about this site and the author.</p>
             </header>
             <div className="image main"><img src="/images/pic01.jpg" alt="" /></div>
