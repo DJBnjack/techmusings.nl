@@ -12,3 +12,7 @@ services:
     build: ./api
     ports:
       - "5000:5000"
+  db:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=my-secret-pw
