@@ -4,15 +4,23 @@ services:
     image: djbnjack/techmusings.nl-site
     build: ./site
     ports:
-      - "8080:80"
+      - 8080:80
     depends_on:
       - api
   api:
     image: djbnjack/techmusings.nl-api
     build: ./api
     ports:
-      - "5000:5000"
+      - 5000:5000
+    depends_on:
+      - db
   db:
     image: mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=my-secret-pw
+    env_file: ../techmusings-db.env
+  admin:
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - db
+    ports:
+      - 8090:80
+    env_file: ../techmusings-admin.env
