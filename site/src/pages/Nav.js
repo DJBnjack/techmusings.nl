@@ -10,7 +10,7 @@ const Nav = () => (
         <ul className="icons">
             <li><a href="https://www.linkedin.com/in/jrebertens/" target="_blank" className="icon fa-linkedin"><span className="label">LinkedIn</span></a></li>
             <li><a href="https://jreb.nl" target="_blank" className="icon fa-globe"><span className="label">Webpage</span></a></li>
-            <li><a href="https://github.com/djbnjack" target="_blank" className="icon fa-github"><span className="label">GitHub</span></a></li>
+            <li><a href="https://github.com/johannesbertens" target="_blank" className="icon fa-github"><span className="label">GitHub</span></a></li>
         </ul>
     </nav>
 );
