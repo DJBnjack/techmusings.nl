@@ -1,4 +1,4 @@
-FROM node as temp
+FROM node:9-slim as temp
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
